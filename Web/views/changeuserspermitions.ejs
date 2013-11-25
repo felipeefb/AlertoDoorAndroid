@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Mudar permições de usuários</title>
+		<link href='default_style.css' rel='stylesheet' type='text/css'>
+		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+		<script>
+		function changeUserPermition(userLogin, userid) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.status == 200) {
+		    		alert("Permissão do usuário foi alterada com sucesso.");
+		    	}
+			};
+			var checked = document.getElementById(userid).checked;
+			url = 'doChangeUserPermition/' + userLogin + "/" + checked;
+			xmlhttp.open('GET', url, false);
+			xmlhttp.send();
+		}
+		</script>
+	</head>
+
+	<body>
+		<%= include static/page_header.html %>
+		<%= include static/page_menu.html %>
+		<div class="body_frame">
+			<h1>Mudar permissões de usuários</h1>
+			<table style="margin: 0px auto;">
+				<tr>
+					<td width="25px;"/>
+					<td width="150px;"><b>Login</b></td>
+					<td width="200px;"><b>Nome</b></td>
+					<td><b>Administrador</b></td>
+					<td><b>Visualizar</b></td>
+				</tr>
+				<%for (var i = 0; i < users.length; i++) {%>
+					<tr <%if (i % 2 == 0) {%>
+						bgcolor="#00BFFF"<%}%>>
+						<td style="padding: 3px;" align="center"><%=(i+1)%></td>
+						<td style="padding: 3px;"><%=users[i].login%></td>
+						<td style="padding: 3px;"><%=users[i].nome%></td>
+						<td style="padding: 3px;" align="center"><input type="checkbox" id="userpermition<%=i%>" onclick="changeUserPermition('<%=users[i].login%>', 'userpermition<%=i%>')"
+							<%if (loggedUser.login == users[i].login) {%>
+							disabled="disabled"<%}%>
+							<%if (users[i].admin) {%>
+							checked="checked"<%}%>>
+						</td>
+						<td style="padding: 3px;" align="center"><input type="checkbox" id="userview<%=i%>" onclick="changeUserView('<%=users[i].login%>', 'userview<%=i%>')"
+							<%if (loggedUser.login == users[i].login) {%>
+							disabled="disabled"<%}%>
+							<%if (users[i].ver) {%>
+							checked="checked"<%}%>>
+						</td>
+					</tr>
+				<%}%>
+			</table>
+		</div>
+		<%= include static/page_footer.html %>
+	</body>
+</html>

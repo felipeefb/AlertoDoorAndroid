@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Cadastro de Usuario</title>
+		<link href='default_style.css' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="signup.js"></script>
+		<script type="text/javascript" src="masks.js"></script>
+	</head>
+
+	<body>
+		<%= include static/page_header.html %>
+		<div class="body_frame">
+			<h1>Cadastro de Usuário</h1>
+			<form id="form" name="form" method="post" action="doSignUp">
+			  <table style="margin-left: 30px;">
+			    <tr>
+			      <td align="right">Nome:</td>
+			      <td width="546"><input name="name" type="text" id="name" size="70" maxlength="60" /></td>
+			    </tr>
+			    <tr>
+			      <td align="right">Email:</td>
+			      <td><input name="email" type="text" id="email" size="70" maxlength="60" /></td>
+			    </tr>
+			    <tr>
+			      <td align="right">Digite novamente o Email:</td>
+			      <td><input name="email2" type="text" id="email2" size="70" maxlength="60" /></td>
+			    </tr>  
+			    <tr>
+			      <td align="right">Login:</td>
+			      <td><input name="login" type="text" id="login" maxlength="12" /></td>
+			    </tr>
+			    <tr>
+			      <td align="right">Senha:</td>
+			      <td><input name="password" type="password" id="password" maxlength="12" /></td>
+			    </tr>
+			    <tr>
+			      <td align="right">Digite novamente a Senha:</td>
+			      <td><input name="password2" type="password" id="password2" maxlength="12" /></td>
+			    </tr>
+			    <tr>
+			      <td align="right">Servidor:</td>
+			      <td><input name="server" type="text" id="server" /></td>
+			    </tr>
+			    <tr> <td />
+			      <td colspan="2"><p>
+			        <input name="signup" type="button" id="signup" value="Concluir meu Cadastro!" onclick="validateFields()" />
+			        <input name="clear" type="reset" id="clear" value="Limpar Campos preenchidos!" />
+			        <p style="color: red; font-size: 12px;">Todos os campos sao obrigatorios!</span></p>
+			      </td>
+			    </tr>
+			  </table>
+			</form>
+		</div>
+		<%= include static/page_footer.html %>
+	</div>
+</body>
+</html>

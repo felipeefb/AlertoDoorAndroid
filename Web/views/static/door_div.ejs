@@ -1,0 +1,31 @@
+<% var ativaChecked = 'checked="checked"', 
+       vigiaChecked = 'checked="checked"', 
+       ativaLink = '3/' + portas[i].porta, 
+       vigiaLink = '5/' + portas[i].porta,
+       doorImage = 'door_closed.jpg'; 
+       
+   if (portas[i].ativa == '0') {
+      ativaChecked = '';
+      ativaLink = '2/' + portas[i].porta;
+   }
+   if (portas[i].vigia == '0') {
+      vigiaChecked = '';
+      vigiaLink = '4/' + portas[i].porta;
+   }
+   if (portas[i].aberta == '0') {
+      doorImage = 'door_open.jpg';
+   }
+%>
+
+<div class="door_info_frame">
+Porta: <%= portas[i].porta %><br/>
+<img src="<%=doorImage%>" width="50px" height="100px"><br/>
+Ativa <input type="checkbox" <%=ativaChecked%> onclick="sendCommandToArduino('<%=ativaLink%>')" 
+  <% if (!loggedUser.admin) {%> 
+    disabled="disabled" <%}%>
+><br/>
+Vigia <input type="checkbox" <%=vigiaChecked%> onclick="sendCommandToArduino('<%=vigiaLink%>')" 
+  <% if (!loggedUser.admin) {%> 
+    disabled="disabled" <%}%>
+><br/> <br/>
+</div>

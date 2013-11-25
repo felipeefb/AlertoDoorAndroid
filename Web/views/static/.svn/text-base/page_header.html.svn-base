@@ -1,0 +1,16 @@
+<div class="header_frame">	
+	<a href="/">Alert Door!</a>
+</div>
+<div style="text-align: center; padding-top: 5px; font-size: 14px">
+		<% if (loggedUser != '') { %> 
+			Olá, <%=loggedUser.nome%> (<a href="doLogout">Sair</a>)<%}%>
+		<font color="red"><%=messageFromServer%></font>
+</div>
+<div style="text-align:center; width: 100%">
+	<% if (loggedUser != '') { %>
+		<a href="/">Início</a>
+		<% if (loggedUser != '' && loggedUser.admin) { %> 
+			- <a href="changeUsersPermitions">Mudar permissões de usuários</a>
+		<%}%>
+	<%}%>
+</div>

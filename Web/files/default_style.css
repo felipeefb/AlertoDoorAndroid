@@ -1,0 +1,186 @@
+@CHARSET "UTF-8";
+@font-face {
+  font-family: roboto_slab;
+  src: url(roboto_slab.woff);
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+    background: #aadfeb;
+    text-align: center;
+    font-family: roboto_slab;
+}
+
+a:LINK, a:VISITED, a:ACTIVE {
+	text-decoration: none;
+	color: navy;
+}
+a:HOVER {
+	text-decoration: none;
+	color: #000;
+}
+       
+.tabs input[type=radio] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+.tabs {
+    width: 100%;
+    float: none;
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 20px auto;
+}
+.tabs li{
+    float: left;
+}
+.tabs label {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 2px 2px 0 0;
+    color: #08C;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: roboto_slab;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.tabs label:hover {
+    background: rgba(255,255,255,0.8);
+    top: 0;
+}
+       
+[id^=tab]:checked + label {
+    background: #08C;
+    color: white;
+    top: 0;
+}
+       
+[id^=tab]:checked ~ [id^=tab-content] {
+    display: block;
+}
+.tab-content{
+	z-index: 2;
+    display: none;
+    text-align: left;
+    width: 100%;
+    border-radius: 2px;
+    font-size: 20px;
+    line-height: 140%;
+    padding-top: 10px;
+    background: #08C;
+    padding: 15px;
+    color: white;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    box-sizing: border-box;
+    -webkit-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+
+.header_frame {
+	width: 100%;
+	padding: 20px 0px;
+	text-align: center;
+	background-color: #a7bc7a;
+	font-weight: bold;
+	font-size: 30px;
+  -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.body_frame {
+	width: 1000px;
+  height: 330px;
+	padding: 0;
+	margin: 0 auto;
+  overflow: auto;
+}
+
+.footer_frame {
+	width: 1000px;
+	padding: 10px 0px;
+  margin: 20px auto;
+  background-color: #a7bc7a;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid #839b4e;
+  -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+#cssmenu ul,
+#cssmenu li #cssmenu a {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 14px;
+  font-family: roboto_slab;
+  line-height: 1;
+}
+#cssmenu {
+  width: 1000px;
+  margin: 0 auto;
+}
+#cssmenu ul {
+  zoom: 1;
+  background: #a7bc7a;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #839b4e;
+  -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+#cssmenu ul:before {
+  content: '';
+  display: block;
+}
+#cssmenu ul:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#cssmenu a,
+#cssmenu a:link,
+#cssmenu a:visited {
+  padding: 15px 20px;
+  display: block;
+  text-decoration: none;
+  color: #000;
+  border-right: 1px solid #839b4e;
+}
+#cssmenu a:hover {
+  color: #586835;
+  text-shadow: 0 1px 1px #bdcd9c;
+}
+#cssmenu li {
+  float: left;
+  border-right: 1px solid #b2c58b;
+}
+#cssmenu li:first-child {
+  border-left: none;
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}

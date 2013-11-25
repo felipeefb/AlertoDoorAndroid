@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/64/trunk/AlertDoor/web/paginas/static
+END
+denied.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/64/trunk/AlertDoor/web/paginas/static/denied.ejs
+END
+page_footer.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/53/trunk/AlertDoor/web/paginas/static/page_footer.html
+END
+door_div.ejs
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/64/trunk/AlertDoor/web/paginas/static/door_div.ejs
+END
+page_header.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/64/trunk/AlertDoor/web/paginas/static/page_header.html
+END

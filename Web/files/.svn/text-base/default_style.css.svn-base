@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+@font-face {
+  font-family: roboto_slab;
+  src: url(roboto_slab.woff);
+}
+
+body {
+	margin: 0px;
+	font-family: roboto_slab;
+}
+
+a:LINK, a:VISITED, a:ACTIVE {
+	text-decoration: none;
+	color: navy;
+}
+a:HOVER {
+	text-decoration: none;
+	color: #000;
+}
+h1, h4 {
+	padding-left: 60px;
+	font-style: italic;
+}
+
+.main_frame {
+	width: 1000px;
+	height: 100%;
+	margin: 0px auto;
+	background-color: white;
+	padding: 0px 10px;
+	border-right: 2px dotted gray;
+	border-left: 2px dotted gray;
+	box-shadow: 5px 5px 20px #888888;
+}
+.header_frame {
+	width: 980px;
+	padding: 10px;
+	border-bottom: 2px solid gray;
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+.footer_frame {
+	width: 980px;
+	padding: 10px;
+	border-top: 2px solid gray;
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+}
+.door_info_frame {
+	float: left;
+	margin: 5px;
+	width: 168px;
+	height: 200px;
+	padding: 10px;
+	border: 1px dotted gray;
+	text-align: center;
+}
+.doors_frame {
+	margin: 0px auto;
+	text-align: center;
+	width: 800px;
+	margin-top: 20px;
+}
+.minor_options_font {
+	font-size: 12px;
+}

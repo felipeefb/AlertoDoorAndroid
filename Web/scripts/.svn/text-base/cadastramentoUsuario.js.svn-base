@@ -1,0 +1,56 @@
+function validaCampo() {
+	if(document.cadastro.nome.value=="") {
+		alert("O Campo nome eh obrigatorio!");
+		return false;
+	} else if(document.cadastro.email.value=="") {
+		alert("O Campo email eh obrigatorio!");
+		return false;
+	} else if(document.cadastro.emailConfirmar.value==""){
+		alert("O Campo email Confirmar é obrigatorio!");
+		return false;
+	} else if(document.cadastro.emailConfirmar.value != document.cadastro.email.value) {
+		alert("Emails diferentes!");
+		return false;
+	} else if(document.cadastro.ddd.value== ""){
+	  	alert("O campo DDD é obrigatorio!");
+	  	return false;
+	} else if(document.cadastro.telefone.value==""){
+		alert("O Campo Telefone é obrigatorio!");
+		return false;
+	} else if(document.cadastro.login.value=="") {
+		alert("O Campo Login eh obrigatorio!");
+		return false;
+	} else if(document.cadastro.senha.value=="") {
+		alert("O Campo Senha é obrigatorio");
+		return false;
+	} else if(document.cadastro.senhaConfirmar.value==""){
+		alert("O Campo Senha Confirmar é obrigatorio");
+		return false;
+	} else if(document.cadastro.senha.value != document.cadastro.senhaConfirmar.value) {
+		alert("Senhas diferentes!");
+		return false;
+	}
+
+	document.cadastro.submit();
+}
+
+function numeros(ie, ff) {
+    if (ie) {
+        tecla = ie;
+    } else {
+        tecla = ff;
+    } 
+    /**
+    * 13 = [ENTER]
+    * 8  = [BackSpace]
+    * 9  = [TAB]
+    * 46 = [Delete]
+    * 48 a 57 = São os números
+    */
+    if ((tecla >= 48 && tecla <= 57) || (tecla == 8) || (tecla == 13) || (tecla == 9) || (tecla == 46)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}

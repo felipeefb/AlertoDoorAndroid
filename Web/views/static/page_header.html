@@ -1,0 +1,14 @@
+<div class="header_frame">
+	<div>
+		<img src="logo.png" width="50px" heigth="50px">
+	</div>
+	<a href="/">Alert Door!</a>
+	<div style="font-size: 14px">
+		<% if (loggedUser) { %> 
+			Olá, <%=loggedUser.nome%> (<a href="doLogout">Sair</a>)
+		<%}%>
+		<% if (messageFromServer) { %> 
+			<font color="red"><%=messageFromServer%></font>
+		<%}%>
+	</div>
+</div>

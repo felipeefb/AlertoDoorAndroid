@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Página Inicial</title>
+		<link href='default_style.css' rel='stylesheet' type='text/css'>
+		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+		<script>
+			function getTabContent(tabName, tabId) {
+				document.getElementById("tab-content"+tabId).innerHTML = "Carregando..."
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					parseJSONToDoors(tabId, JSON.parse(xmlhttp.responseText));
+				}
+				xmlhttp.open('GET', 'doGetDoorsStatus2', false);
+				xmlhttp.send();
+			}
+
+			function parseJSONToDoors(tabId, json) {
+				if (json.getServerStatus == "denied") {
+					showTextOnTab(tabId, "Você não tem permissão para ver este sistema. Contacte o administrador.")
+				} else {
+					var strSystemStatus = "O sistema está: ";
+					if (json.system == "1") strSystemStatus += '<font color="green">Ativo</font>';
+					else strSystemStatus += '<font color="red">Desativado</font>';
+
+					strSystemStatus += "<br/>O alarme está: "
+					if (json.alarm == "1") strSystemStatus += '<font color="red">Ativo</font>';
+					else strSystemStatus += '<font color="green">Desativado</font>';
+
+					if (json.doors.length != 0) {
+						strSystemStatus += "<br/><br/>Estado das Portas:<br/>"
+						for (var i = 0; i < json.doors.length; i++) {
+							strSystemStatus += '<div style="float: left; padding: 5px 50px;">';
+							strSystemStatus += "<b>Porta " + json.doors[i].number + ": </b>";
+							strSystemStatus += "<br/>Ativa: ";
+							if (json.doors[i].active == "1") strSystemStatus += '<font color="green">Sim</font>';
+							else strSystemStatus += '<font color="red">Não</font>';
+							strSystemStatus += "<br/>Vigia: ";
+							if (json.doors[i].watch == "1") strSystemStatus += '<font color="green">Sim</font>';
+							else strSystemStatus += '<font color="red">Não</font>';
+							strSystemStatus += "<br/>Aberta: ";
+							if (json.doors[i].open == "1") strSystemStatus += '<font color="green">Sim</font>';
+							else strSystemStatus += '<font color="red">Não</font>';
+							strSystemStatus += '</div>';
+						}
+					}
+
+					showTextOnTab(tabId, strSystemStatus);
+				}
+			}
+
+			function showTextOnTab(tabId, text) {
+				document.getElementById("tab-content"+tabId).innerHTML = text;
+			}
+		</script>
+	</head>
+
+	<body>
+		<%= include static/page_header.html %>
+		<%= include static/page_menu.html %>
+		<div class="body_frame">
+			<ul class="tabs">
+				<%for (var i = 0; i < systems.length; i++) {%>
+					<li>
+						<input type="radio" <%if (i == 0) {%> checked <%}%>name="tabs" id="tab<%=i%>" onclick="getTabContent('<%=systems[i].nome%>',<%=i%>)">
+						<label for="tab<%=i%>"><%=systems[i].nome%></label>
+						<div id="tab-content<%=i%>" class="tab-content animated fadeIn">
+							Clique no nome do servidor para atualizar.
+						</div>
+					</li>
+				<%}%>
+			</ul>
+		</div>
+		<%= include static/page_footer.html %>
+	</body>
+</html>
